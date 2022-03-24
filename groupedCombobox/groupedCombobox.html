@@ -1,0 +1,80 @@
+<template>
+    <div style="padding-bottom: 20px" onmouseleave={handleCloseDropDown}>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="headerLabel" id="headerLabel">
+                <template if:true={required}>
+                    <abbr class="slds-required" title="required">* </abbr>
+                </template>
+                {label}
+            </label>
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div class={comboboxTriggerClass}>
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                            <button onclick={handleDropDownClick} type="button" class={buttonClass} disabled={_readOnly}>
+                                <span class="slds-truncate">{buttonText}</span>
+                            </button>
+                            <span
+                                class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                                <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                </svg>
+                            </span>
+                        </div>
+                        <template if:true={errorMessage}>
+                            <div style="color: #ea001e" class="slds-form-element__help slds-has-error">{errorMessage}</div>
+                        </template>
+                        <div class="slds-dropdown slds-dropdown_fluid " role="listbox">
+                            <template for:each={_groupsAndOptions} for:item="group">
+                                <ul key={group.groupName} class="slds-listbox slds-listbox_vertical" role="group">
+                                    <!-- GROUP LIST ITEM -->
+                                    <li role="presentation" class="slds-listbox__item">
+                                        <div
+                                            class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                            role="presentation">
+                                            <h3 class="slds-listbox__option-header" role="presentation">{group.groupName}</h3>
+                                        </div>
+                                    </li>
+                                    <!-- OPTIONS -->
+                                    <template for:each={group.options} for:item="option">
+                                        <template if:true={option.selected}>
+                                            <li key={option.value} role="presentation" class="slds-listbox__item">
+                                                <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected slds-has-focus" role="option">
+                                                  <span class="slds-media__figure slds-listbox__option-icon">
+                                                    <span class="slds-icon_container slds-icon-utility-check slds-current-color">
+                                                      <svg class="slds-icon slds-icon_x-small">
+                                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                  <span class="slds-media__body">
+                                                    <span class="slds-truncate" title={option.label}>{option.label}</span>
+                                                  </span>
+                                                </div>
+                                            </li>
+                                        </template>
+                                        <template if:false={option.selected}>
+                                            <li key={option.value} role="presentation" class="slds-listbox__item">
+                                                <div
+                                                    data-id={option.value}
+                                                    onclick={handleOptionClick}
+                                                    class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                                    role="option">
+                                                    <span class="slds-media__figure slds-listbox__option-icon"></span>
+                                                    <span class="slds-media__body">
+                                                        <span class="slds-truncate"
+                                                            title={option.label}>{option.label}</span>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </template>
+                                    </template>
+                                </ul>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
