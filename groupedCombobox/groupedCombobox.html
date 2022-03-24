@@ -24,7 +24,7 @@
                         <template if:true={errorMessage}>
                             <div style="color: #ea001e" class="slds-form-element__help slds-has-error">{errorMessage}</div>
                         </template>
-                        <div class="slds-dropdown slds-dropdown_fluid " role="listbox">
+                        <div class="slds-dropdown slds-dropdown_fluid slds-scrollable " style="max-height:40vh" role="listbox">
                             <template for:each={_groupsAndOptions} for:item="group">
                                 <ul key={group.groupName} class="slds-listbox slds-listbox_vertical" role="group">
                                     <!-- GROUP LIST ITEM -->
