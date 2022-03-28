@@ -1,5 +1,5 @@
 
-# LWC Grouped Combobox
+# Salesforce LWC Grouped Combobox
 
 This is a fully functional Salesforce LWC Grouped Combobox example built using the SLDS combobox blueprint.
 - Matches the Salesforce styling for Comboboxes
