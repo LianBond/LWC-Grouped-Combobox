@@ -2,9 +2,6 @@
 # Salesforce LWC Grouped Combobox
 
 This is a fully functional Salesforce LWC Grouped Combobox example built using the SLDS combobox blueprint.
-- Matches the Salesforce styling for Comboboxes
-- Error handling also matches the Salesforce styling for errors on input fields
-- A good example of how to implement a custom input component using SLDS blueprints
 
 ### Screenshots
 
